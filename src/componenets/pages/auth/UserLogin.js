@@ -1,9 +1,14 @@
-import { TextField, Button, Box, Alert } from "@mui/material";
-
-import React from 'react'
-import { NavLink } from "react-router-dom";
+import { TextField, Button, Box, Alert } from "@mui/material"
+import React, { useState } from 'react'
+import { NavLink, useNavigate } from "react-router-dom";
 
 function UserLogin() {
+    const [error, setError] = useState({
+        status: false,
+        msg: "",
+        type: ""
+    });
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = new FormData(e.currentTarget);
@@ -12,10 +17,11 @@ function UserLogin() {
             password: data.get('password')
         };
         if (actualData.email && actualData.password) {
-        console.log(actualData);
-        document.getElementById('login-form').reset();
+            setError({status: true, msg: "Login Success", type: "success"});
+            document.getElementById('login-form').reset();
+            navigate('/');
         } else {
-            console.log('Please fill all the fields');
+            setError({status: true, msg: "Please fill all the fields", type: "error"});
         }
 
     }
@@ -26,6 +32,7 @@ function UserLogin() {
         <TextField required fullWidth margin='normal' id='password' name='password' label='Password' type='password'/>
         <Box textAlign='center'><Button type='submit' variant='contained' sx={{mt: 3, mb: 2, px:5}}>Login</Button></Box>
         <NavLink to='/'>Forgot Password ?</NavLink>
+        {error.status ? <Alert severity={error.type}>{error.msg}</Alert>: null}
     </Box>
     </>
   )
