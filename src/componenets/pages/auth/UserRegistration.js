@@ -8,7 +8,7 @@ function UserRegistration() {
         msg: "",
         type: ""
     });
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = new FormData(e.currentTarget);

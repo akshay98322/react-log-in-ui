@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./componenets/pages/Layout";
 import Contact from './componenets/pages/Contact';
 import LoginReg from './componenets/pages/auth/LoginReg';
+import SendPassResEmail from './componenets/pages/auth/SendPassResEmail';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route index element={<Home/>} />
         <Route path='contact' element={<Contact/>} />
         <Route path='login' element={<LoginReg/>} />
+        <Route path='sendpassresemail' element={<SendPassResEmail/>} />
       </Route>
     </Routes>
     </BrowserRouter>

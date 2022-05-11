@@ -1,4 +1,4 @@
-import {Grid, Card, Typography, Tabs, Tab,Box} from "@mui/material"
+import {Grid, Card, Tabs, Tab,Box} from "@mui/material"
 import { useState } from "react";
 import Login_pic from "../../../images/login.png"
 import UserLogin from "./UserLogin";
