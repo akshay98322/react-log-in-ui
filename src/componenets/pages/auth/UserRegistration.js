@@ -23,7 +23,6 @@ function UserRegistration() {
             if (actualData.password === actualData.confirm_password) {
                 setError({status: true, msg: "Registration Success", type: "success"});
                 document.getElementById('registration-form').reset();
-                // navigate('/');
             } else {
                 setError({status: true, msg: "Password and Confirm Password doesn't match", type: "error"});
             }

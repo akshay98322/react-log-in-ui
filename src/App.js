@@ -4,6 +4,7 @@ import Layout from "./componenets/pages/Layout";
 import Contact from './componenets/pages/Contact';
 import LoginReg from './componenets/pages/auth/LoginReg';
 import SendPassResEmail from './componenets/pages/auth/SendPassResEmail';
+import ResetPass from './componenets/pages/auth/ResetPass';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='contact' element={<Contact/>} />
         <Route path='login' element={<LoginReg/>} />
         <Route path='sendpassresemail' element={<SendPassResEmail/>} />
+        <Route path='reset' element={<ResetPass/>} />
       </Route>
     </Routes>
     </BrowserRouter>
