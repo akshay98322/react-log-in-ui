@@ -17,9 +17,9 @@ function UserLogin() {
             password: data.get('password')
         };
         if (actualData.email && actualData.password) {
-            setError({status: true, msg: "Login Success", type: "success"});
             document.getElementById('login-form').reset();
-            navigate('/');
+            setError({status: true, msg: "Login Success", type: "success"});
+            navigate('/dashboard');
         } else {
             setError({status: true, msg: "Please fill all the fields", type: "error"});
         }

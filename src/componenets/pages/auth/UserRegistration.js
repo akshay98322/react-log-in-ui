@@ -1,6 +1,6 @@
 import { TextField, Button, Box, Alert, FormControlLabel, Checkbox } from "@mui/material"
 import React, { useState } from 'react'
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function UserRegistration() {
     const [error, setError] = useState({
@@ -8,7 +8,7 @@ function UserRegistration() {
         msg: "",
         type: ""
     });
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = new FormData(e.currentTarget);
@@ -21,8 +21,9 @@ function UserRegistration() {
         };
         if (actualData.name && actualData.email && actualData.password && actualData.confirm_password && actualData.tc !== null) {
             if (actualData.password === actualData.confirm_password) {
-                setError({status: true, msg: "Registration Success", type: "success"});
                 document.getElementById('registration-form').reset();
+                setError({status: true, msg: "Registration Success", type: "success"});
+                navigate('/dashboard');
             } else {
                 setError({status: true, msg: "Password and Confirm Password doesn't match", type: "error"});
             }
